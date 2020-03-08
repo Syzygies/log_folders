@@ -1,2 +1,2 @@
 # log_folders
-Cache for forum code sharing
+Dated cache for sharing bits of code
