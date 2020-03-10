@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'pp'
+
 nbh = [
   # shift
   ["qwertyuiop", "QWERTYUIOP"],
@@ -24,6 +26,8 @@ nbh = [
   ["HJK", "JKL"],
   ["ZXCV", "XCVB"],
   ["N", "M"],
+  ["~{}!", "{}!@"],
+  ["#$%\\", "$%\\|"],
   ["`()_", "()_^"],
   ["&-=+", "-=+:"],
   ["[]", "]*"],
@@ -35,6 +39,8 @@ nbh = [
   # below
   ["qwertyuiop", "asdfghjkl;"],
   ["asdfghjkl;", "zxcvbnm,./"],
+  ["QWERTYUIO", "ASDFGHJKL"],
+  ["ASDFGHJ", "ZXCVBNM"],
   ["~{}!@#$%\\|", "`()_^&-=+:"],
   ["()_&-=+:", "[]*'\"<>?"],
   ["123", "567"],
@@ -46,7 +52,7 @@ nbh = [
   ["xcvnm,./", "[]*'\"<>?"],
 
   # to DK
-  ["werasdfxcv", "1234567890"]
+  ["werasdfxcv", "1234567890"],
 ]
 
 WALK = Hash.new { |hash, key| hash[key] = [] }
@@ -66,9 +72,10 @@ end
 close = { '(' => ')', '{' => '}', '[' => ']' }
 
 chars = WALK.keys
+nn = chars.length
 12.times do
   4.times do
-    c = chars[rand(68)]
+    c = chars[rand(nn)]
     all = [c]
     print c
     if close[c]
