@@ -49,15 +49,7 @@ nbh = [
   ["werasdfxcv", "1234567890"]
 ]
 
-WALK = {}
-
-def set(c,d)
-  if WALK[c]
-    WALK[c] << d
-  else
-    WALK[c] = [d]
-  end
-end
+WALK = Hash.new { |hash, key| hash[key] = [] }
 
 nbh.each do |x|
   y, z = x
@@ -66,8 +58,8 @@ nbh.each do |x|
     STDERR.puts "#{yl}!=#{zl} #{y} #{z}\n"
   end
   y.split("").zip(z.split("")).each do |c, d|
-    set c, d
-    set d, c
+    WALK[c] << d
+    WALK[d] << c
   end
 end
 
