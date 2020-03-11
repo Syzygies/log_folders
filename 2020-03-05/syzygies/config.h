@@ -1,4 +1,4 @@
-// Copyright 2020 Dave Bayer davebayer@mac.com @Syzygies <http://www.wtfpl.net/>
+// Copyright 2020 Dave Bayer davebayer@mac.com @Syzygies <https://unlicense.org>
 
 #pragma once
 
